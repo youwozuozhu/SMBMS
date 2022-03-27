@@ -41,4 +41,8 @@ public class userDaoImple implements userDao{
         }
         return user;
     }
+
+    public int pwdModify(Connection connection, String userCode) {
+        return 0;
+    }
 }
