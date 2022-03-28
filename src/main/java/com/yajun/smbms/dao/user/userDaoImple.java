@@ -41,8 +41,18 @@ public class userDaoImple implements userDao{
         }
         return user;
     }
+    //修改当前用户的密码
+    public int pwdModify(Connection connection, String userPassword,String userCode) {
+        PreparedStatement pst = null;
+        int updaterow=0;
+        if(connection!=null)
+        {
+            Object [] parmas = {userPassword,userCode};
+            String sql = "update smbms_user set userPassword = ? where usercode = ?";
+            updaterow = BaseDao.execute(connection, pst, sql, parmas);
+            BaseDao.closeResources(null,pst,null);
+        }
 
-    public int pwdModify(Connection connection, String userCode) {
-        return 0;
+        return updaterow;
     }
 }

@@ -44,5 +44,13 @@
         <servlet-name>loginOutServlet</servlet-name>
         <url-pattern>/jsp/logout.do</url-pattern>
     </servlet-mapping>
-    <>
+<!--    注册userservlet -->
+    <servlet>
+        <servlet-name>userServlet</servlet-name>
+        <servlet-class>com.yajun.smbms.servlet.user.userServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userServlet</servlet-name>
+        <url-pattern>/jsp/user.do</url-pattern>
+    </servlet-mapping>
 </web-app>

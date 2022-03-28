@@ -22,7 +22,7 @@ public class loginServlet  extends HttpServlet {
         //与数据库中的密码进行对比，调用业务层
         UserService userService = new UserServiceImple();
         User user = userService.login(userCode, userPassword);//这里已经把登录的人给查出来了
-        if(user!=null)
+        if(user!=null && userPassword.equals(user.getUserPassword()))
         {
                //查有此人，一般登录成功后会把用户的信息放到session中，以便后面使用
             req.getSession().setAttribute(constants.USER_SESSION,user);

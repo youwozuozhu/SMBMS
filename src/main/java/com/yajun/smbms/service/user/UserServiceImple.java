@@ -26,13 +26,30 @@ public class UserServiceImple implements UserService {
         try {
             connection = BaseDao.getConnection();
             user = userdao.getLoginUser(connection, userCode);
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             BaseDao.closeResources(connection,null,null);
         }
         return user;
+    }
+
+    public boolean pwdModify(String userPassword, String userCode) {
+        Connection connection = null;
+        boolean flag = false;
+        int i =0;
+        try {
+            connection = BaseDao.getConnection();
+            if(userdao.pwdModify(connection, userPassword, userCode)>0)
+            {
+                flag = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResources(connection,null,null);
+        }
+        return flag;
     }
 
 
@@ -42,5 +59,12 @@ public class UserServiceImple implements UserService {
         UserServiceImple userServiceImple = new UserServiceImple();
         User user = userServiceImple.login("admin", "1234567");
         System.out.println(user.getAddress());
+    }
+    @Test
+    public void test2()
+    {
+        UserServiceImple userServiceImple = new UserServiceImple();
+        boolean flag = userServiceImple.pwdModify("12345678", "admin");
+        System.out.println(flag);
     }
 }

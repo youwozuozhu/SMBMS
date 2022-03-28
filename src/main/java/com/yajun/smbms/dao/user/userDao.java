@@ -9,5 +9,5 @@ public interface userDao {
     public User getLoginUser(Connection connection,String userCode);
 
     //修改当前用户的密码
-    public int pwdModify(Connection connection,String userCode);
+    public int pwdModify(Connection connection,String userPassword,String userCode);
 }
