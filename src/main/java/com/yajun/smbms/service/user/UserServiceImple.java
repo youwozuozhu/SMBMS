@@ -14,11 +14,12 @@ public class UserServiceImple implements UserService {
     //当业务层被实例化后
     private userDao userdao;
 
-    public UserServiceImple() {
+    public UserServiceImple()
+    {
         userdao = new userDaoImple();
     }
 
-    //userCode pawword 是前端传过来的
+    //userCode password 是前端传过来的
     public User login(String userCode, String password) {
 
         Connection connection = null;
@@ -37,7 +38,7 @@ public class UserServiceImple implements UserService {
     public boolean pwdModify(String userPassword, String userCode) {
         Connection connection = null;
         boolean flag = false;
-        int i =0;
+        //int i =0;
         try {
             connection = BaseDao.getConnection();
             if(userdao.pwdModify(connection, userPassword, userCode)>0)
@@ -64,7 +65,7 @@ public class UserServiceImple implements UserService {
     public void test2()
     {
         UserServiceImple userServiceImple = new UserServiceImple();
-        boolean flag = userServiceImple.pwdModify("12345678", "admin");
+        boolean flag = userServiceImple.pwdModify("12345679", "admin");
         System.out.println(flag);
     }
 }

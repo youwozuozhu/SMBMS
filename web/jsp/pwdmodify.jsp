@@ -13,8 +13,8 @@
                     <div class="info">${message}</div>
                     <div class="">
                         <label for="oldPassword">旧密码：</label>
-                        <input type="password" name="oldpassword" id="oldpassword" value=""> 
-						<font color="red"></font>
+                        <input type="password" name="oldpassword" id="oldpassword" value="">
+                        <font color="red"></font>
                     </div>
                     <div>
                         <label for="newPassword">新密码：</label>

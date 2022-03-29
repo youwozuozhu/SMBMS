@@ -48,7 +48,7 @@ public class userDaoImple implements userDao{
         if(connection!=null)
         {
             Object [] parmas = {userPassword,userCode};
-            String sql = "update smbms_user set userPassword = ? where usercode = ?";
+            String sql = "update smbms_user set userPassword = ? where userCode = ?";
             updaterow = BaseDao.execute(connection, pst, sql, parmas);
             BaseDao.closeResources(null,pst,null);
         }

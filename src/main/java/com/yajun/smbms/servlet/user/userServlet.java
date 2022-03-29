@@ -37,8 +37,9 @@ public class userServlet extends HttpServlet {
         }else
         {
             req.setAttribute("message","新密码设置有问题");
+            req.getRequestDispatcher("/jsp/pwdmodify.jsp").forward(req,resp);
         }
-        req.getRequestDispatcher("/jsp/pwdmodify.jsp").forward(req,resp);
+
     }
 
     @Override
