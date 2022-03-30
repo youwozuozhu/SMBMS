@@ -22,6 +22,10 @@
         <filter-name>sysFilter</filter-name>
         <url-pattern>/jsp/*</url-pattern>
     </filter-mapping>
+<!--    设置session自动过期时间-->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
 <!--    设置欢迎页-->
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>

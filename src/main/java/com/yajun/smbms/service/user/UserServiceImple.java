@@ -1,6 +1,6 @@
 package com.yajun.smbms.service.user;
 
-import com.yajun.smbms.dao.BaseDao;
+import com.yajun.smbms.utils.BaseDao;
 import com.yajun.smbms.dao.user.userDao;
 import com.yajun.smbms.dao.user.userDaoImple;
 import com.yajun.smbms.pojo.User;

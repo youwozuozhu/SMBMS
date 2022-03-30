@@ -1,6 +1,6 @@
 package com.yajun.smbms.dao.user;
 
-import com.yajun.smbms.dao.BaseDao;
+import com.yajun.smbms.utils.BaseDao;
 import com.yajun.smbms.pojo.User;
 
 import java.sql.Connection;

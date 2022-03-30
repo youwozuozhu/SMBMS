@@ -1,4 +1,4 @@
-package com.yajun.smbms.dao;
+package com.yajun.smbms.utils;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -17,7 +17,8 @@ $(function(){
 		$.ajax({
 			type:"GET",
 			url:path+"/jsp/user.do",
-			data:{method:"pwdmodify",oldpassword:oldpassword.val()},
+			data:{method:"pwdmodify",oldpassword:oldpassword.val()},//ajax传递的参数
+			//path+"/jsp/user.do?method=pwdmodify&oldpassword=oldpassword.val()
 			dataType:"json",
 			success:function(data){
 				if(data.result == "true"){//旧密码正确
@@ -35,8 +36,8 @@ $(function(){
 				validateTip(oldpassword.next(),{"color":"red"},imgNo + " 请求错误",false);
 			}
 		});
-		
-		
+
+
 	}).on("focus",function(){
 		validateTip(oldpassword.next(),{"color":"#666666"},"* 请输入原密码",false);
 	});
@@ -69,7 +70,7 @@ $(function(){
 		oldpassword.blur();
 		newpassword.blur();
 		rnewpassword.blur();
-		if(//oldpassword.attr("validateStatus") == "true" &&
+		if(oldpassword.attr("validateStatus") == "true" &&
 			newpassword.attr("validateStatus") == "true"
 			&& rnewpassword.attr("validateStatus") == "true"){
 			if(confirm("确定要修改密码？")){
