@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class userDaoImple implements userDao{
 
@@ -54,5 +55,12 @@ public class userDaoImple implements userDao{
         }
 
         return updaterow;
+    }
+
+    public List<User> queryUsers(Connection connection) {
+
+        String sql = "select userCode,userName,gender,birthday,userRole from smbms_user";
+        BaseDao.execute(connection,pst,rs,sql,params);
+        return null;
     }
 }
