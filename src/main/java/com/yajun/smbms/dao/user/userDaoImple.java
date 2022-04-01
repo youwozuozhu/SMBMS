@@ -1,5 +1,6 @@
 package com.yajun.smbms.dao.user;
 
+import com.mysql.jdbc.StringUtils;
 import com.yajun.smbms.utils.BaseDao;
 import com.yajun.smbms.pojo.User;
 
@@ -7,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class userDaoImple implements userDao{
@@ -57,10 +59,47 @@ public class userDaoImple implements userDao{
         return updaterow;
     }
 
-    public List<User> queryUsers(Connection connection) {
+    public int getUserCount(Connection connection, String userName, int roleCode) {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        StringBuffer sqlBuffer = new StringBuffer();
+        ArrayList<Object> list = new ArrayList<Object>();
+        int count =0;
+        if(connection!=null)
+        {
+            sqlBuffer.append("select count(1) as count from smbms_user u,smbms_role r where u.userRole=r.id");
+            if(StringUtils.isNullOrEmpty(userName))
+            {
+                sqlBuffer.append(" and u.userName like ? ");
+                list.add("%"+userName+"%");
 
-        String sql = "select userCode,userName,gender,birthday,userRole from smbms_user";
-        BaseDao.execute(connection,pst,rs,sql,params);
-        return null;
+            }else if(roleCode>0)
+            {
+                sqlBuffer.append(" and r.id like ?");
+                list.add(roleCode);
+            }
+            System.out.println(sqlBuffer);
+        }
+        Object[] params = list.toArray();
+
+        rs = BaseDao.execute(connection, pst, rs, sqlBuffer.toString(), params);
+        try {
+            if(rs.next())
+            {
+                count = rs.getInt("count");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            BaseDao.closeResources(null,pst,rs);
+            return count;
+        }
     }
+
+//    public List<User> queryUsers(Connection connection) {
+//
+//        String sql = "select userCode,userName,gender,birthday,userRole from smbms_user";
+//        BaseDao.execute(connection,pst,rs,sql,params);
+//        return null;
+//    }
 }

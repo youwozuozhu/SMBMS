@@ -12,6 +12,8 @@ public interface userDao {
     //修改当前用户的密码
     public int pwdModify(Connection connection,String userPassword,String userCode);
 
+    //根据用户名或者用户角色查询用户表中所有用户的数量
+    public int getUserCount(Connection connection,String userName,int roleCode);
     //查询用户表中所有的用户
-    public List<User> queryUsers(Connection connection,String );
+    //public List<User> queryUsers(Connection connection,String );
 }

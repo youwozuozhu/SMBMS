@@ -7,4 +7,6 @@ public interface UserService {
     public User login(String userCode,String password);
     //用户密码修改
     public boolean pwdModify(String userPassword,String userCode );
+
+    public int getUserCount(String userName,int roleCode);
 }

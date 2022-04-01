@@ -1,9 +1,9 @@
 package com.yajun.smbms.service.user;
 
-import com.yajun.smbms.utils.BaseDao;
 import com.yajun.smbms.dao.user.userDao;
 import com.yajun.smbms.dao.user.userDaoImple;
 import com.yajun.smbms.pojo.User;
+import com.yajun.smbms.utils.BaseDao;
 import org.junit.Test;
 
 import java.sql.Connection;
@@ -53,6 +53,20 @@ public class UserServiceImple implements UserService {
         return flag;
     }
 
+    public int getUserCount(String userName, int roleCode) {
+        Connection connection = null;
+        int count =0;
+        try {
+            connection = BaseDao.getConnection();
+            count = userdao.getUserCount(connection, userName, roleCode);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResources(connection,null,null);
+            return count;
+        }
+    }
+
 
     @Test
     public void test()
@@ -67,5 +81,12 @@ public class UserServiceImple implements UserService {
         UserServiceImple userServiceImple = new UserServiceImple();
         boolean flag = userServiceImple.pwdModify("12345679", "admin");
         System.out.println(flag);
+    }
+    @Test
+    public void test3()
+    {
+        UserServiceImple userServiceImple = new UserServiceImple();
+        int count = userServiceImple.getUserCount("null", 0);
+        System.out.println(count);
     }
 }
