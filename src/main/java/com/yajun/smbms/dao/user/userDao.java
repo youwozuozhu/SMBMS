@@ -14,6 +14,6 @@ public interface userDao {
 
     //根据用户名或者用户角色查询用户表中所有用户的数量
     public int getUserCount(Connection connection,String userName,int roleCode);
-    //查询用户表中所有的用户
-    //public List<User> queryUsers(Connection connection,String );
+    //根据条件username或者角色 查询用户表中所有的用户
+    public List<User> getUserList(Connection connection,String userName,int roleCode,int currentPageNo,int pageSize);
 }

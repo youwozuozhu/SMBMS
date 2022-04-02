@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class userDaoImple implements userDao{
-
+    //得到要登录的用户
     public User getLoginUser(Connection connection, String userCode) {
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -58,7 +58,7 @@ public class userDaoImple implements userDao{
 
         return updaterow;
     }
-
+    //根据用户名或者用户角色查询用户表中所有用户的数量
     public int getUserCount(Connection connection, String userName, int roleCode) {
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -68,12 +68,13 @@ public class userDaoImple implements userDao{
         if(connection!=null)
         {
             sqlBuffer.append("select count(1) as count from smbms_user u,smbms_role r where u.userRole=r.id");
-            if(StringUtils.isNullOrEmpty(userName))
+            if(!StringUtils.isNullOrEmpty(userName))
             {
                 sqlBuffer.append(" and u.userName like ? ");
                 list.add("%"+userName+"%");
 
-            }else if(roleCode>0)
+            }
+            if(roleCode>0&&roleCode<4)
             {
                 sqlBuffer.append(" and r.id like ?");
                 list.add(roleCode);
@@ -95,11 +96,55 @@ public class userDaoImple implements userDao{
             return count;
         }
     }
-
-//    public List<User> queryUsers(Connection connection) {
-//
-//        String sql = "select userCode,userName,gender,birthday,userRole from smbms_user";
-//        BaseDao.execute(connection,pst,rs,sql,params);
-//        return null;
-//    }
+    //根据条件username或者角色 查询用户表中所有的用户
+    public List<User> getUserList(Connection connection, String userName, int roleCode, int currentPageNo, int pageSize) {
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        StringBuffer sqlBuffer = new StringBuffer();
+        ArrayList<User> usersList = new ArrayList<User>();
+        ArrayList<Object> listParams = new ArrayList<Object>();
+        User user = new User();
+        try {
+            sqlBuffer.append("select count(1) as count from smbms_user u,smbms_role r where u.userRole=r.id");
+            if(connection != null)
+            {
+                if(!StringUtils.isNullOrEmpty(userName))
+                {
+                    sqlBuffer.append(" and u.userName like ?");
+                    listParams.add("%"+userName+"%");
+                }
+                if(roleCode>0&&roleCode<4)
+                {
+                    sqlBuffer.append(" and r.id like ?");
+                    listParams.add(roleCode);
+                }
+                sqlBuffer.append(" order by u.creationDate DESC limit ?,?");
+                listParams.add(currentPageNo);
+                listParams.add(pageSize);
+            }
+            System.out.println(sqlBuffer);
+            Object[] params = listParams.toArray();
+            for (int i = 0; i < params.length; i++) {
+                System.out.println(params[i]);
+            }
+            rs = BaseDao.execute(connection, pstm, rs, sqlBuffer.toString(), params);
+            while(rs.next())
+            {
+                user.setId(rs.getInt("id"));
+                user.setUserCode(rs.getString("userCode"));
+                user.setUserName(rs.getString("userName"));
+                user.setGender(rs.getInt("gender"));
+                user.setBirthday(rs.getDate("birthday"));
+                user.setPhone(rs.getString("phone"));
+                //user.setUserRoleName(rs.getString("userRoleName"));
+                user.setUserRole(rs.getInt("userRole"));
+                usersList.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            BaseDao.closeResources(null,pstm,rs);
+        }
+        return  usersList;
+    }
 }

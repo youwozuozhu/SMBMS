@@ -7,6 +7,8 @@ import com.yajun.smbms.utils.BaseDao;
 import org.junit.Test;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserServiceImple implements UserService {
 
@@ -67,9 +69,23 @@ public class UserServiceImple implements UserService {
         }
     }
 
+    public List<User> getUserList(String userName, int roleCode, int currentPageNo, int pageSize) {
+        Connection connection = null;
+        List<User> userList = null;
+        try {
+            connection = BaseDao.getConnection();
+            userList = userdao.getUserList(connection, userName, roleCode, currentPageNo, pageSize);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResources(connection,null,null);
+        }
+        return userList;
+    }
+
 
     @Test
-    public void test()
+    public void test1()
     {
         UserServiceImple userServiceImple = new UserServiceImple();
         User user = userServiceImple.login("admin", "1234567");
@@ -86,7 +102,15 @@ public class UserServiceImple implements UserService {
     public void test3()
     {
         UserServiceImple userServiceImple = new UserServiceImple();
-        int count = userServiceImple.getUserCount("null", 0);
+        int count = userServiceImple.getUserCount("李明", 2);
         System.out.println(count);
+    }
+    @Test
+    public void test4()
+    {
+        UserServiceImple userServiceImple = new UserServiceImple();
+        List<User> list = userServiceImple.getUserList("李明", 2, 1, 1);
+
+        System.out.println(list.size());
     }
 }
