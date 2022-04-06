@@ -26,6 +26,9 @@ public class userServlet extends HttpServlet {
         }else if(method.equals("pwdmodify") && method!=null)
         {
             this.queryOldpassword(req,resp);
+        }else if(method.equals("query")&& method != null)//此处的method要看前端传过来的参数
+        {
+            this.queryUserList(req,resp);
         }
     }
 
@@ -99,5 +102,11 @@ public class userServlet extends HttpServlet {
         printwriter.write(JSONObject.toJSONString(resultMap));
         printwriter.flush();
         printwriter.close();
+    }
+
+    //重难点 
+    public void queryUserList(HttpServletRequest req,HttpServletResponse resp)
+    {
+
     }
 }
