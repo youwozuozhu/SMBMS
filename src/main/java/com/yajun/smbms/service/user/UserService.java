@@ -1,6 +1,10 @@
 package com.yajun.smbms.service.user;
 
+import com.yajun.smbms.pojo.Role;
 import com.yajun.smbms.pojo.User;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import com.yajun.smbms.pojo.User;
@@ -13,4 +17,5 @@ public interface UserService {
     public int getUserCount(String userName,int roleCode);
     //根据条件username或者角色 查询用户表中所有的用户
     public  List<User> getUserList(String userName,int roleCode,int currentPageNo,int pageSize);
+
 }

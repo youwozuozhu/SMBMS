@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36c119bc-01d3-452f-abee-1af2b97cc360" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/Role/RoleDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/Role/RoleDaoImple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/role/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/role/RoleServiceImple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDaoImple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDaoImple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDaoImple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/UserDaoImple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserServiceImple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserServiceImple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yajun/smbms/dao/user/userDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yajun/smbms/dao/user/userDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yajun/smbms/dao/user/userDaoImple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yajun/smbms/dao/user/userDaoImple.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yajun/smbms/pojo/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yajun/smbms/pojo/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yajun/smbms/service/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yajun/smbms/service/user/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yajun/smbms/service/user/UserServiceImple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yajun/smbms/service/user/UserServiceImple.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,13 +59,6 @@
         <item name="smbms: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="smbms_role: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="smbms: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="smbms_user: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -67,57 +68,29 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDaoImple.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/UserDaoImple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="122" column="41" lean-forward="true" selection-start-line="122" selection-start-column="41" selection-end-line="122" selection-end-column="41" />
+            <state relative-caret-position="238">
+              <caret line="150" selection-start-line="150" selection-end-line="150" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getLoginUser#0;class#userDaoImple#0" />
                 <element signature="method#pwdModify#0;class#userDaoImple#0" />
                 <element signature="method#getUserCount#0;class#userDaoImple#0" />
-                <element signature="e#2503#2511#0" expanded="true" />
-                <element signature="e#3741#3747#0" expanded="true" />
-                <element signature="e#3800#3808#0" expanded="true" />
+                <element signature="e#3839#3845#0" expanded="true" />
+                <element signature="e#3901#3909#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDao.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/UserDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            <state relative-caret-position="600">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/pojo/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-              <folding>
-                <element signature="e#1366#1367#0" expanded="true" />
-                <element signature="e#1392#1393#0" expanded="true" />
-                <element signature="e#1431#1432#0" expanded="true" />
-                <element signature="e#1461#1462#0" expanded="true" />
-                <element signature="e#1500#1501#0" expanded="true" />
-                <element signature="e#1535#1536#0" expanded="true" />
-                <element signature="e#1591#1592#0" expanded="true" />
-                <element signature="e#1639#1640#0" expanded="true" />
-                <element signature="e#1644#1645#0" expanded="true" />
-                <element signature="e#1675#1676#0" expanded="true" />
-                <element signature="e#1723#1724#0" expanded="true" />
-                <element signature="e#1763#1764#0" expanded="true" />
-                <element signature="e#2041#2042#0" expanded="true" />
-                <element signature="e#2077#2078#0" expanded="true" />
-                <element signature="e#2627#2628#0" expanded="true" />
-                <element signature="e#2667#2668#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -126,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="390">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,46 +111,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserServiceImple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="100" column="9" lean-forward="true" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
+            <state relative-caret-position="270">
+              <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#416#417#0" expanded="true" />
-                <element signature="e#460#461#0" expanded="true" />
+                <element signature="e#467#468#0" expanded="true" />
+                <element signature="e#511#512#0" expanded="true" />
+                <element signature="method#login#0;class#UserServiceImple#0" />
                 <element signature="method#pwdModify#0;class#UserServiceImple#0" />
+                <element signature="method#getUserCount#0;class#UserServiceImple#0" />
+                <element signature="method#getUserList#0;class#UserServiceImple#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/utils/PageSupport.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/Role/RoleDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-              <folding>
-                <element signature="e#568#569#0" expanded="true" />
-                <element signature="e#599#600#0" expanded="true" />
-                <element signature="e#644#645#0" expanded="true" />
-                <element signature="e#684#685#0" expanded="true" />
-                <element signature="e#718#719#0" expanded="true" />
-                <element signature="e#751#752#0" expanded="true" />
-                <element signature="e#800#801#0" expanded="true" />
-                <element signature="e#844#845#0" expanded="true" />
-                <element signature="e#882#883#0" expanded="true" />
-                <element signature="e#919#920#0" expanded="true" />
-                <element signature="e#976#977#0" expanded="true" />
-                <element signature="e#1028#1029#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/utils/BaseDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="43" column="26" lean-forward="true" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+            <state relative-caret-position="192">
+              <caret line="8" column="24" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -186,21 +139,49 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://f47fbc5b-e7d2-42b8-a163-11c7fd5b11c1/schema/smbms/table/smbms_user">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state projectRestartId="0bd7b7a2-fce5-4064-8c8a-2fd71c5a4ef6">
-              <filtering>
-                <filter text="" />
-              </filtering>
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/role/RoleService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/role/RoleServiceImple.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#363#364#0" expanded="true" />
+                <element signature="e#394#395#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/Role/RoleDaoImple.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#325#331#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f47fbc5b-e7d2-42b8-a163-11c7fd5b11c1/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="3" selection-end-column="38" />
+            <state relative-caret-position="150">
+              <caret line="5" column="20" selection-start-line="5" selection-end-line="5" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -208,7 +189,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="das://f47fbc5b-e7d2-42b8-a163-11c7fd5b11c1/schema/smbms/table/smbms_role">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state projectRestartId="0bd7b7a2-fce5-4064-8c8a-2fd71c5a4ef6">
+            <state projectRestartId="b5aac249-2ce6-4f5a-bc36-3c6d4e632db1">
               <filtering>
                 <filter text="" />
               </filtering>
@@ -255,12 +236,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/servlet/user/userServlet.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/utils/PageSupport.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/pojo/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDaoImple.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserServiceImple.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/f47fbc5b-e7d2-42b8-a163-11c7fd5b11c1/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDaoImple.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/Role/roleDaoImple.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/Role/roleDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/role/RoleService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserServiceImple.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/Role/RoleDaoImple.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/role/RoleServiceImple.java" />
       </list>
     </option>
   </component>
@@ -310,15 +296,17 @@
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <hideEmptyPackages ProjectPane="false" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -392,6 +380,18 @@
               <item name="yajun" type="462c0819:PsiDirectoryNode" />
               <item name="smbms" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="Role" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javaweb-smbms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SMBMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="yajun" type="462c0819:PsiDirectoryNode" />
+              <item name="smbms" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -404,6 +404,18 @@
               <item name="yajun" type="462c0819:PsiDirectoryNode" />
               <item name="smbms" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="javaweb-smbms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SMBMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="yajun" type="462c0819:PsiDirectoryNode" />
+              <item name="smbms" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="role" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="javaweb-smbms" type="b2602c69:ProjectViewProjectNode" />
@@ -492,12 +504,12 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="D:/Tomcat/tomcat_8.5.75" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.42643678" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -520,9 +532,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceImple.test4">
-    <configuration name="UserServiceImple.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="javaweb-smbms" />
+  <component name="RunManager" selected="JUnit.RoleServiceImple.test">
+    <configuration name="RoleServiceImple.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SMBMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yajun.smbms.service.role.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yajun.smbms.service.role" />
+      <option name="MAIN_CLASS_NAME" value="com.yajun.smbms.service.role.RoleServiceImple" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceImple" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SMBMS" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.yajun.smbms.service.user.*" />
@@ -531,8 +559,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.yajun.smbms.service.user" />
       <option name="MAIN_CLASS_NAME" value="com.yajun.smbms.service.user.UserServiceImple" />
-      <option name="METHOD_NAME" value="test2" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -569,14 +596,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserServiceImple.test5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SMBMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yajun.smbms.service.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yajun.smbms.service.user" />
+      <option name="MAIN_CLASS_NAME" value="com.yajun.smbms.service.user.UserServiceImple" />
+      <option name="METHOD_NAME" value="test5" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat8" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY" show_console_on_std_err="false" show_console_on_std_out="false">
       <option name="adminPort" value="8005" />
       <option name="allowRunningInParallel" value="false" />
       <option name="contextPath" value="/" />
       <option name="docBase" value="E:\SMBMS\web" />
-      <option name="envOptions">
-        <map />
-      </option>
+      <option name="envOptions" />
       <option name="moduleName" />
       <option name="passParentEnvironmentVariables" value="true" />
       <option name="port" value="8080" />
@@ -594,16 +635,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.UserServiceImple.test2" />
       <item itemvalue="JUnit.UserServiceImple.test3" />
-      <item itemvalue="Smart Tomcat.Tomcat8" />
       <item itemvalue="JUnit.UserServiceImple.test4" />
+      <item itemvalue="Smart Tomcat.Tomcat8" />
+      <item itemvalue="JUnit.UserServiceImple" />
+      <item itemvalue="JUnit.UserServiceImple.test5" />
+      <item itemvalue="JUnit.RoleServiceImple.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RoleServiceImple.test" />
+        <item itemvalue="JUnit.UserServiceImple.test5" />
+        <item itemvalue="JUnit.UserServiceImple" />
         <item itemvalue="JUnit.UserServiceImple.test4" />
         <item itemvalue="JUnit.UserServiceImple.test3" />
-        <item itemvalue="JUnit.UserServiceImple.test2" />
       </list>
     </recent_temporary>
   </component>
@@ -612,7 +657,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="17fe5c70-5b3e-4c5a-b6ef-f98886395d64" name="Default Changelist" comment="" />
+      <changelist id="36c119bc-01d3-452f-abee-1af2b97cc360" name="Default Changelist" comment="" />
       <created>1647225959593</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -634,6 +679,7 @@
       <workItem from="1648559029000" duration="99000" />
       <workItem from="1648559203400" duration="5167000" />
       <workItem from="1648605187370" duration="12600000" />
+      <workItem from="1649225988609" duration="6215000" />
     </task>
     <task id="LOCAL-00001" summary="2022-4-1 16:22">
       <created>1648800988895</created>
@@ -642,43 +688,50 @@
       <option name="project" value="LOCAL" />
       <updated>1648800988895</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2022-4-2 16:14">
+      <created>1648887262040</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1648887262040</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserServiceImple_test3 - 2022.04.02 at 15h 53m 03s.xml">
-      <configuration name="UserServiceImple.test3" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserServiceImple_test4 - 2022.04.02 at 15h 53m 45s.xml">
+    <history-entry file="UserServiceImple_test4 - 2022.04.06 at 15h 11m 40s.xml">
       <configuration name="UserServiceImple.test4" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImple_test4 - 2022.04.02 at 15h 54m 25s.xml">
+    <history-entry file="UserServiceImple_test4 - 2022.04.06 at 15h 11m 53s.xml">
       <configuration name="UserServiceImple.test4" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImple_test4 - 2022.04.02 at 16h 05m 30s.xml">
+    <history-entry file="UserServiceImple_test4 - 2022.04.06 at 15h 12m 04s.xml">
       <configuration name="UserServiceImple.test4" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImple_test4 - 2022.04.02 at 16h 06m 35s.xml">
+    <history-entry file="UserServiceImple_test4 - 2022.04.06 at 15h 12m 29s.xml">
       <configuration name="UserServiceImple.test4" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImple_test4 - 2022.04.02 at 16h 07m 00s.xml">
-      <configuration name="UserServiceImple.test4" configurationId="JUnit" />
+    <history-entry file="UserServiceImple_test5 - 2022.04.06 at 15h 49m 54s.xml">
+      <configuration name="UserServiceImple.test5" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImple_test4 - 2022.04.02 at 16h 08m 55s.xml">
-      <configuration name="UserServiceImple.test4" configurationId="JUnit" />
+    <history-entry file="UserServiceImple_test5 - 2022.04.06 at 15h 51m 08s.xml">
+      <configuration name="UserServiceImple.test5" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImple_test3 - 2022.04.02 at 16h 09m 12s.xml">
-      <configuration name="UserServiceImple.test3" configurationId="JUnit" />
+    <history-entry file="UserServiceImple_test5 - 2022.04.06 at 15h 51m 53s.xml">
+      <configuration name="UserServiceImple.test5" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImple_test4 - 2022.04.02 at 16h 09m 34s.xml">
-      <configuration name="UserServiceImple.test4" configurationId="JUnit" />
+    <history-entry file="UserServiceImple_test5 - 2022.04.06 at 15h 52m 19s.xml">
+      <configuration name="UserServiceImple.test5" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImple_test4 - 2022.04.02 at 16h 10m 08s.xml">
-      <configuration name="UserServiceImple.test4" configurationId="JUnit" />
+    <history-entry file="UserServiceImple_test5 - 2022.04.06 at 15h 52m 37s.xml">
+      <configuration name="UserServiceImple.test5" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoleServiceImple_test - 2022.04.06 at 16h 10m 36s.xml">
+      <configuration name="RoleServiceImple.test" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91097000" />
+    <option name="totallyTimeSpent" value="97815000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -693,7 +746,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18710022" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18923241" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -703,12 +756,12 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32987553" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4995958" weight="0.36511377" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4995958" visible="true" weight="0.4127844" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39937758" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.23120452" weight="0.27175844" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="7" visible="true" weight="0.32286024" />
+      <window_info anchor="bottom" id="Database Console" order="7" weight="0.32286024" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3285968" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5004042" side_tool="true" weight="0.25222024" />
@@ -719,7 +772,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.14232409" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.1380597" />
       <window_info anchor="right" id="Maven" order="4" weight="0.32995737" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
@@ -766,17 +819,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2022-4-1 16:22" />
-    <option name="LAST_COMMIT_MESSAGE" value="2022-4-1 16:22" />
+    <MESSAGE value="2022-4-2 16:14" />
+    <option name="LAST_COMMIT_MESSAGE" value="2022-4-2 16:14" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://D:/JDK/lib/src.zip!/java.base/java/lang/Object.java" />
-    <entry file="jar://D:/JDK/lib/src.zip!/java.base/java/util/AbstractCollection.java" />
-    <entry file="jar://D:/JDK/lib/src.zip!/java.base/java/util/AbstractList.java" />
-    <entry file="jar://D:/JDK/lib/src.zip!/java.base/java/util/Arrays.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/db.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -985,20 +1035,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/utils/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="43" column="26" lean-forward="true" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/web/js/userview.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/pojo/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+        <state relative-caret-position="1290">
+          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
           <folding>
             <element signature="e#1366#1367#0" expanded="true" />
             <element signature="e#1392#1393#0" expanded="true" />
@@ -1008,42 +1051,8 @@
             <element signature="e#1535#1536#0" expanded="true" />
             <element signature="e#1591#1592#0" expanded="true" />
             <element signature="e#1639#1640#0" expanded="true" />
-            <element signature="e#1644#1645#0" expanded="true" />
-            <element signature="e#1675#1676#0" expanded="true" />
-            <element signature="e#1723#1724#0" expanded="true" />
-            <element signature="e#1763#1764#0" expanded="true" />
-            <element signature="e#2041#2042#0" expanded="true" />
-            <element signature="e#2077#2078#0" expanded="true" />
-            <element signature="e#2627#2628#0" expanded="true" />
+            <element signature="e#2633#2634#0" expanded="true" />
             <element signature="e#2667#2668#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/userview.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://f47fbc5b-e7d2-42b8-a163-11c7fd5b11c1/schema/smbms/table/smbms_role">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="0bd7b7a2-fce5-4064-8c8a-2fd71c5a4ef6">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDaoImple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="122" column="41" lean-forward="true" selection-start-line="122" selection-start-column="41" selection-end-line="122" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getLoginUser#0;class#userDaoImple#0" />
-            <element signature="method#pwdModify#0;class#userDaoImple#0" />
-            <element signature="method#getUserCount#0;class#userDaoImple#0" />
-            <element signature="e#2503#2511#0" expanded="true" />
-            <element signature="e#3741#3747#0" expanded="true" />
-            <element signature="e#3800#3808#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1051,7 +1060,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/utils/PageSupport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
           <folding>
             <element signature="e#568#569#0" expanded="true" />
             <element signature="e#599#600#0" expanded="true" />
@@ -1069,33 +1078,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/utils/BaseDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserServiceImple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="100" column="9" lean-forward="true" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#416#417#0" expanded="true" />
-            <element signature="e#460#461#0" expanded="true" />
-            <element signature="method#pwdModify#0;class#UserServiceImple#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/userDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        <state relative-caret-position="1200">
+          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1104,7 +1090,7 @@
     </entry>
     <entry file="das://f47fbc5b-e7d2-42b8-a163-11c7fd5b11c1/schema/smbms/table/smbms_user">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="0bd7b7a2-fce5-4064-8c8a-2fd71c5a4ef6">
+        <state projectRestartId="b5aac249-2ce6-4f5a-bc36-3c6d4e632db1">
           <filtering>
             <filter text="" />
           </filtering>
@@ -1113,8 +1099,111 @@
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f47fbc5b-e7d2-42b8-a163-11c7fd5b11c1/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="3" selection-end-column="38" />
+        <state relative-caret-position="150">
+          <caret line="5" column="20" selection-start-line="5" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://f47fbc5b-e7d2-42b8-a163-11c7fd5b11c1/schema/smbms/table/smbms_role">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="b5aac249-2ce6-4f5a-bc36-3c6d4e632db1">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/UserDaoImple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="150" selection-start-line="150" selection-end-line="150" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getLoginUser#0;class#userDaoImple#0" />
+            <element signature="method#pwdModify#0;class#userDaoImple#0" />
+            <element signature="method#getUserCount#0;class#userDaoImple#0" />
+            <element signature="e#3839#3845#0" expanded="true" />
+            <element signature="e#3901#3909#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/user/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/role/RoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/Role/RoleDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/user/UserServiceImple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="method#login#0;class#UserServiceImple#0" />
+            <element signature="method#pwdModify#0;class#UserServiceImple#0" />
+            <element signature="method#getUserCount#0;class#UserServiceImple#0" />
+            <element signature="method#getUserList#0;class#UserServiceImple#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/dao/Role/RoleDaoImple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#325#331#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yajun/smbms/service/role/RoleServiceImple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#394#395#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1171,7 +1260,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>javaweb-smbms</last-edited>
+          <last-edited>SMBMS</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

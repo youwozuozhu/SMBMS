@@ -1,11 +1,13 @@
 package com.yajun.smbms.dao.user;
 
+import com.yajun.smbms.pojo.Role;
 import com.yajun.smbms.pojo.User;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
-public interface userDao {
+public interface UserDao {
     //得到要登录的用户
     public User getLoginUser(Connection connection,String userCode);
 
@@ -16,4 +18,5 @@ public interface userDao {
     public int getUserCount(Connection connection,String userName,int roleCode);
     //根据条件username或者角色 查询用户表中所有的用户
     public List<User> getUserList(Connection connection,String userName,int roleCode,int currentPageNo,int pageSize);
+
 }

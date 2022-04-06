@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class userDaoImple implements userDao{
+public class UserDaoImple implements UserDao {
     //得到要登录的用户
     public User getLoginUser(Connection connection, String userCode) {
         PreparedStatement pst = null;
@@ -103,9 +103,9 @@ public class userDaoImple implements userDao{
         StringBuffer sqlBuffer = new StringBuffer();
         ArrayList<User> usersList = new ArrayList<User>();
         ArrayList<Object> listParams = new ArrayList<Object>();
-        User user = new User();
+        User user = null;
         try {
-            sqlBuffer.append("select count(1) as count from smbms_user u,smbms_role r where u.userRole=r.id");
+            sqlBuffer.append("select * from smbms_user u,smbms_role r where u.userRole=r.id");
             if(connection != null)
             {
                 if(!StringUtils.isNullOrEmpty(userName))
@@ -130,6 +130,7 @@ public class userDaoImple implements userDao{
             rs = BaseDao.execute(connection, pstm, rs, sqlBuffer.toString(), params);
             while(rs.next())
             {
+                user = new User();
                 user.setId(rs.getInt("id"));
                 user.setUserCode(rs.getString("userCode"));
                 user.setUserName(rs.getString("userName"));
@@ -147,4 +148,5 @@ public class userDaoImple implements userDao{
         }
         return  usersList;
     }
+
 }

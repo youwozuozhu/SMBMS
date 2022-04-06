@@ -1,24 +1,23 @@
 package com.yajun.smbms.service.user;
 
-import com.yajun.smbms.dao.user.userDao;
-import com.yajun.smbms.dao.user.userDaoImple;
+import com.yajun.smbms.dao.user.UserDao;
+import com.yajun.smbms.dao.user.UserDaoImple;
 import com.yajun.smbms.pojo.User;
 import com.yajun.smbms.utils.BaseDao;
 import org.junit.Test;
 
 import java.sql.Connection;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserServiceImple implements UserService {
 
     //业务层都会调用Dao层，所以需要引入Dao层
     //当业务层被实例化后
-    private userDao userdao;
+    private UserDao userdao;
 
     public UserServiceImple()
     {
-        userdao = new userDaoImple();
+        userdao = new UserDaoImple();
     }
 
     //userCode password 是前端传过来的
@@ -84,6 +83,8 @@ public class UserServiceImple implements UserService {
     }
 
 
+
+
     @Test
     public void test1()
     {
@@ -102,15 +103,18 @@ public class UserServiceImple implements UserService {
     public void test3()
     {
         UserServiceImple userServiceImple = new UserServiceImple();
-        int count = userServiceImple.getUserCount("李明", 2);
+        int count = userServiceImple.getUserCount(null, 3);
         System.out.println(count);
     }
     @Test
     public void test4()
     {
         UserServiceImple userServiceImple = new UserServiceImple();
-        List<User> list = userServiceImple.getUserList("李明", 2, 1, 1);
-
+        List<User> list = userServiceImple.getUserList(null, 3, 0, 16);
+        for (int i = 0; i <list.size() ; i++) {
+            System.out.println(list.get(i).getUserName());
+        }
         System.out.println(list.size());
     }
+
 }
