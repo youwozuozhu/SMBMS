@@ -1,9 +1,9 @@
 package com.yajun.smbms.utils;
 
 public class PageSupport {
-    //当前页码
+    //当前页码 来着用户输入
     private int currentPageNo = 1;
-    //页码容量
+    //页面容量
     private int pageSize = 0;
     //信息总数量
     private int totalCount = 0;
@@ -38,10 +38,29 @@ public class PageSupport {
     }
 
     public int getTotalPageCount() {
+        if(totalCount>0)
+        {
+            this.totalCount = totalCount;
+            this.setTotalPageCountByRs();
+        }
         return totalPageCount;
     }
 
     public void setTotalPageCount(int totalPageCount) {
-        this.totalPageCount = totalPageCount;
+        this.totalPageCount = totalCount/pageSize;
+    }
+
+    public void setTotalPageCountByRs()
+    {
+        if(this.totalCount%this.pageSize ==0)
+        {
+            this.totalPageCount = this.totalCount/this.pageSize;
+        }else if(this.totalCount%this.pageSize>0)
+        {
+            this.totalPageCount = this.totalCount/this.pageSize+1;
+        }else
+        {
+            this.totalPageCount = 0;
+        }
     }
 }
