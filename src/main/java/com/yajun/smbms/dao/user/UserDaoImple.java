@@ -79,7 +79,7 @@ public class UserDaoImple implements UserDao {
                 sqlBuffer.append(" and r.id like ?");
                 list.add(roleCode);
             }
-            System.out.println(sqlBuffer);
+           // System.out.println(sqlBuffer);
         }
         Object[] params = list.toArray();
 
@@ -119,14 +119,16 @@ public class UserDaoImple implements UserDao {
                     listParams.add(roleCode);
                 }
                 sqlBuffer.append(" order by u.creationDate DESC limit ?,?");
-                listParams.add(currentPageNo);
-                listParams.add(pageSize);
+                //mysql分页的index是从0开始的
+                currentPageNo = (currentPageNo-1)*pageSize;
+                listParams.add(currentPageNo);//从哪一个下标开始
+                listParams.add(pageSize);//从currentPageNo连续取几个
             }
-            System.out.println(sqlBuffer);
+            //System.out.println(sqlBuffer);
             Object[] params = listParams.toArray();
-            for (int i = 0; i < params.length; i++) {
-                System.out.println(params[i]);
-            }
+//            for (int i = 0; i < params.length; i++) {
+//                System.out.println(params[i]);
+//            }
             rs = BaseDao.execute(connection, pstm, rs, sqlBuffer.toString(), params);
             while(rs.next())
             {
@@ -137,7 +139,10 @@ public class UserDaoImple implements UserDao {
                 user.setGender(rs.getInt("gender"));
                 user.setBirthday(rs.getDate("birthday"));
                 user.setPhone(rs.getString("phone"));
-                //user.setUserRoleName(rs.getString("userRoleName"));
+                //根据用户生日计算年龄
+                user.setAge(rs.getDate("birthday"));
+                //数据库表格里面没有 后面添加的根据userRole确定用户角色名称
+                user.setUserRoleName(rs.getInt("userRole"));
                 user.setUserRole(rs.getInt("userRole"));
                 usersList.add(user);
             }

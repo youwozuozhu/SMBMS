@@ -1,5 +1,8 @@
 package com.yajun.smbms.pojo;
 
+import org.junit.Test;
+
+import java.util.Calendar;
 import java.util.Date;
 
 public class User {
@@ -45,16 +48,27 @@ public class User {
         return age;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setAge(Date birthday) {
+        int selectYear = 1900+birthday.getYear();
+        //System.out.println("********"+selectYear);
+        this.age = Calendar.getInstance().get(Calendar.YEAR)-selectYear;
     }
 
     public String getUserRoleName() {
         return userRoleName;
     }
 
-    public void setUserRoleName(String userRoleName) {
-        this.userRoleName = userRoleName;
+    public void setUserRoleName(int userRole ) {
+        if(userRole==1)
+        {
+            this.userRoleName = "系统管理员";
+        }else if(userRole==2)
+        {
+            this.userRoleName = "经理";
+        }else {
+            this.userRoleName = "普通员工";
+        }
+
     }
 
     public Integer getId() {
@@ -160,6 +174,7 @@ public class User {
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
     }
+
 
     @Override
     public String toString() {

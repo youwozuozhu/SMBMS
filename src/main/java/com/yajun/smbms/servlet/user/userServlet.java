@@ -34,6 +34,9 @@ public class userServlet extends HttpServlet {
         }else if(method.equals("query")&& method != null)//此处的method要看前端传过来的参数
         {
             this.queryUserList(req,resp);
+        }else if(method.equals("view") && method != null)
+        {
+            this.viewUserList(req,resp);
         }
     }
 
@@ -109,7 +112,8 @@ public class userServlet extends HttpServlet {
         printwriter.close();
     }
 
-    //重难点 
+    //重难点
+    //用户管理- 查询用户列表
     public void queryUserList(HttpServletRequest req,HttpServletResponse resp)  {
         //从前端获取数据
         String queryname = req.getParameter("queryname");
@@ -118,8 +122,6 @@ public class userServlet extends HttpServlet {
         int queryUserRole = 0;
 
         //第一次请求，一定是第一页，并且页面大小是固定的
-        UserServiceImple userServiceImple = new UserServiceImple();
-        RoleServiceImple roleServiceImple = new RoleServiceImple();
         int currentPageNo = 1;
         if(queryname == null)
         {
@@ -134,27 +136,33 @@ public class userServlet extends HttpServlet {
             currentPageNo = Integer.parseInt(pageIndex);
         }
 
+        UserServiceImple userServiceImple = new UserServiceImple();
         //获取用户总数(分页，上一页 下一页的情况)
         int totalcount = userServiceImple.getUserCount(queryname, queryUserRole);
+        //System.out.println("totalcount:"+totalcount);
         PageSupport pageSupport = new PageSupport();
-        pageSupport.setCurrentPageNo(currentPageNo);
-        pageSupport.setPageSize(constants.PAGE_SIZE);
         pageSupport.setTotalCount(totalcount);
+        pageSupport.setCurrentPageNo(currentPageNo);
+       // pageSupport.setPageSize(constants.PAGE_SIZE);
 
         //控制首页和尾页 总页数
-        int totalPageCount = totalcount/constants.PAGE_SIZE;
-        System.out.println("-------"+totalPageCount);
+        int totalPageCount = pageSupport.getTotalPageCount();
+        //System.out.println("totalPageCount:"+totalPageCount);
         if(currentPageNo<1)
         {
             currentPageNo = 1;
-        }else if(currentPageNo>totalcount)
+        }else if(currentPageNo>totalPageCount)
         {
             currentPageNo = totalPageCount;
         }
-
+        //用户列表
         List<User> userList = userServiceImple.getUserList(queryname, queryUserRole, currentPageNo, constants.PAGE_SIZE);
+//        for (int i = 0; i <userList.size() ; i++) {
+//            System.out.println(userList.get(i).getUserName());
+//        }
         req.setAttribute("userList",userList);
-
+        //角色列表
+        RoleServiceImple roleServiceImple = new RoleServiceImple();
         List<Role> roleList = null;
         try {
             roleList = roleServiceImple.getRoleList();
@@ -162,16 +170,26 @@ public class userServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        req.setAttribute("totalCount",totalcount);
-        req.setAttribute("currentPageNo",currentPageNo);
-        req.setAttribute("totalPageCount",totalPageCount);
+        req.setAttribute("totalCount",totalcount);//查询记录总条数
+        req.setAttribute("currentPageNo",currentPageNo);//当前页码数
+        req.setAttribute("totalPageCount",totalPageCount);//总页数
         req.setAttribute("queryUserName",queryname);
         req.setAttribute("queryUserRole",queryUserRole);
         try {
             req.getRequestDispatcher("/jsp/userlist.jsp").forward(req,resp);
-        } catch (ServletException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (IOException e) {
+        }
+    }
+
+    //用户管理-点击查看用户信息
+    public void viewUserList(HttpServletRequest req,HttpServletResponse resp)
+    {
+        UserServiceImple userServiceImple = new UserServiceImple();
+        userServiceImple.getUserList()
+        try {
+            req.getRequestDispatcher("/jsp/userview.jsp").forward(req,resp);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

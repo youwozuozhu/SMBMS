@@ -103,18 +103,18 @@ public class UserServiceImple implements UserService {
     public void test3()
     {
         UserServiceImple userServiceImple = new UserServiceImple();
-        int count = userServiceImple.getUserCount(null, 3);
+        int count = userServiceImple.getUserCount(null, 0);
         System.out.println(count);
     }
     @Test
     public void test4()
     {
         UserServiceImple userServiceImple = new UserServiceImple();
-        List<User> list = userServiceImple.getUserList(null, 3, 0, 16);
+        List<User> list = userServiceImple.getUserList(null, 0, 1, 16);
         for (int i = 0; i <list.size() ; i++) {
             System.out.println(list.get(i).getUserName());
         }
-        System.out.println(list.size());
+        //System.out.println(list.size());
     }
 
 }
