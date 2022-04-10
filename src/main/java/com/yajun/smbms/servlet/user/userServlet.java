@@ -185,8 +185,14 @@ public class userServlet extends HttpServlet {
     //用户管理-点击查看用户信息
     public void viewUserList(HttpServletRequest req,HttpServletResponse resp)
     {
+        String uid = req.getParameter("uid");
+        System.out.println("--------"+uid);
         UserServiceImple userServiceImple = new UserServiceImple();
-        userServiceImple.getUserList()
+        User user = userServiceImple.getUserById(uid);
+        System.out.println("====="+user.getUserCode());
+       // req.setAttribute("user",user);
+        req.setAttribute("user.userCode",user.getUserCode());
+        req.setAttribute("user.userName",user.getUserName());
         try {
             req.getRequestDispatcher("/jsp/userview.jsp").forward(req,resp);
         } catch (Exception e) {

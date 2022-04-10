@@ -82,7 +82,19 @@ public class UserServiceImple implements UserService {
         return userList;
     }
 
-
+    public User getUserById(String uid) {
+        Connection connection = null;
+        User user = null;
+        try {
+            connection = BaseDao.getConnection();
+            user = userdao.getUserById(connection, uid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            BaseDao.closeResources(connection,null,null);
+        }
+        return user;
+    }
 
 
     @Test
@@ -115,6 +127,13 @@ public class UserServiceImple implements UserService {
             System.out.println(list.get(i).getUserName());
         }
         //System.out.println(list.size());
+    }
+    @Test
+    public void test5()
+    {
+        UserServiceImple userServiceImple = new UserServiceImple();
+        User user = userServiceImple.getUserById("12");
+        System.out.println(user.getUserName());
     }
 
 }

@@ -17,5 +17,6 @@ public interface UserService {
     public int getUserCount(String userName,int roleCode);
     //根据条件username或者角色 查询用户表中所有的用户
     public  List<User> getUserList(String userName,int roleCode,int currentPageNo,int pageSize);
-
+    //根据UID查询用户信息
+    public User getUserById(String uid);
 }

@@ -18,5 +18,7 @@ public interface UserDao {
     public int getUserCount(Connection connection,String userName,int roleCode);
     //根据条件username或者角色 查询用户表中所有的用户
     public List<User> getUserList(Connection connection,String userName,int roleCode,int currentPageNo,int pageSize);
+    //查询用户信息直接在界面显示
+    public User getUserById(Connection connection,String uid);
 
 }

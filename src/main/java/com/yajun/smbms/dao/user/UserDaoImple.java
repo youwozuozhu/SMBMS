@@ -154,4 +154,37 @@ public class UserDaoImple implements UserDao {
         return  usersList;
     }
 
+    public User getUserById(Connection connection, String uid) {
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        String sql = "select * from smbms_user where id = ?";
+        Object [] params = {uid};
+        User user=null;
+        rs = BaseDao.execute(connection, pstm, rs, sql, params);
+        try {
+            if(rs.next())
+            {
+                user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUserCode(rs.getString("userCode"));
+                user.setUserName(rs.getString("userName"));
+                user.setUserPassword(rs.getString("userPassword"));
+                user.setGender(rs.getInt("gender"));
+                user.setBirthday(rs.getTimestamp("birthday"));
+                user.setPhone(rs.getString("phone"));
+                user.setAddress(rs.getString("address"));
+                user.setUserRole(rs.getInt("userRole"));
+                //user.setUserRoleName(rs.getString("userRoleName"));
+                user.setCreatedBy(rs.getInt("createdBy"));
+                //user.setCreationDate(rs.getTimestamp("creationDate"));
+                user.setModifyBy(rs.getInt("modifyBy"));
+                user.setModifyDate(rs.getTimestamp("modifyDate"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResources(null,pstm,rs);
+            return user;
+        }
+    }
 }
