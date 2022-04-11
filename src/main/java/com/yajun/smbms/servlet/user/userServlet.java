@@ -17,8 +17,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.SimpleFormatter;
 
 //实现servlet复用
 public class userServlet extends HttpServlet {
@@ -36,7 +39,10 @@ public class userServlet extends HttpServlet {
             this.queryUserList(req,resp);
         }else if(method.equals("view") && method != null)
         {
-            this.viewUserList(req,resp);
+            this.viewUserList(req,resp,"/jsp/userview.jsp");
+        }else if(method.equals("modify") && method != null)
+        {
+            this.modifyUserById(req,resp,"/jsp/usermodify.jsp");
         }
     }
 
@@ -183,20 +189,66 @@ public class userServlet extends HttpServlet {
     }
 
     //用户管理-点击查看用户信息
-    public void viewUserList(HttpServletRequest req,HttpServletResponse resp)
+    public void viewUserList(HttpServletRequest req,HttpServletResponse resp,String url)
     {
         String uid = req.getParameter("uid");
-        System.out.println("--------"+uid);
+        //System.out.println("--------"+uid);
         UserServiceImple userServiceImple = new UserServiceImple();
         User user = userServiceImple.getUserById(uid);
-        System.out.println("====="+user.getUserCode());
-       // req.setAttribute("user",user);
-        req.setAttribute("user.userCode",user.getUserCode());
-        req.setAttribute("user.userName",user.getUserName());
+        //System.out.println("====="+user.getUserCode());
+        req.setAttribute("user",user);
+        //下面赋值属性不可行
+//        req.setAttribute("user.userCode",user.getUserCode());
+//        req.setAttribute("user.userName",user.getUserName());
         try {
-            req.getRequestDispatcher("/jsp/userview.jsp").forward(req,resp);
+            req.getRequestDispatcher(url).forward(req,resp);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    //用户管理-点击修改用户信息
+    public void modifyUserById(HttpServletRequest req,HttpServletResponse resp,String url)
+    {
+        String uid = req.getParameter("uid");
+        //System.out.println("++++++++++"+uid);
+        UserServiceImple userServiceImple = new UserServiceImple();
+        User user = new User();
+        user.setUserName(req.getParameter("userName"));
+        System.out.println(req.getParameter("gender"));
+        user.setGender(Integer.valueOf(req.getParameter("gender")));
+//        try {
+//            user.setBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("birthday")));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+        user.setPhone(req.getParameter("phone"));
+        user.setAddress(req.getParameter("address"));
+        //user.setUserRoleName(Integer.parseInt(req.getParameter("userRole")));
+        boolean b = userServiceImple.modifyUserById(uid, user);
+        if(b)
+        {
+            try {
+                //resp.sendRedirect(req.getContextPath()+"/jsp/user.do?method=query");
+                req.getRequestDispatcher(url).forward(req,resp);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else
+        {
+            try {
+                req.getRequestDispatcher(url).forward(req,resp);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //用户管理-删除用户信息
+    public void delUserById(HttpServletRequest req,HttpServletResponse resp)
+    {
+
     }
 }

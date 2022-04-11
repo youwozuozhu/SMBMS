@@ -7,6 +7,7 @@ import com.yajun.smbms.utils.BaseDao;
 import org.junit.Test;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public class UserServiceImple implements UserService {
@@ -87,13 +88,48 @@ public class UserServiceImple implements UserService {
         User user = null;
         try {
             connection = BaseDao.getConnection();
+            connection.setAutoCommit(false);
             user = userdao.getUserById(connection, uid);
+            connection.commit();
         } catch (Exception e) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
         }finally {
             BaseDao.closeResources(connection,null,null);
         }
         return user;
+    }
+
+    public boolean modifyUserById(String uid,User user) {
+        Connection connection = null;
+        boolean flag = false;
+        try {
+            connection = BaseDao.getConnection();
+            connection.setAutoCommit(false);
+            if(userdao.modifyUserById(connection, uid, user)>0)
+            {
+                flag = true;
+            }
+            connection.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } finally {
+            BaseDao.closeResources(connection,null,null);
+        }
+        return flag;
+    }
+
+    public boolean delUserById(String uid) {
+        return false;
     }
 
 
@@ -134,6 +170,13 @@ public class UserServiceImple implements UserService {
         UserServiceImple userServiceImple = new UserServiceImple();
         User user = userServiceImple.getUserById("12");
         System.out.println(user.getUserName());
+    }
+    @Test
+    public void test6()
+    {
+        UserServiceImple userServiceImple = new UserServiceImple();
+        boolean b = userServiceImple.modifyUserById("12", new User());
+        System.out.println(b);
     }
 
 }

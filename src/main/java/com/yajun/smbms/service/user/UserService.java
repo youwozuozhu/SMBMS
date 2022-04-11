@@ -19,4 +19,8 @@ public interface UserService {
     public  List<User> getUserList(String userName,int roleCode,int currentPageNo,int pageSize);
     //根据UID查询用户信息
     public User getUserById(String uid);
+    //根据UID修改用户信息
+    public boolean modifyUserById(String uid,User user);
+    //根据UID修改用户信息
+    public boolean delUserById(String uid);
 }

@@ -3,6 +3,7 @@ package com.yajun.smbms.dao.user;
 import com.mysql.jdbc.StringUtils;
 import com.yajun.smbms.utils.BaseDao;
 import com.yajun.smbms.pojo.User;
+import sun.security.krb5.internal.crypto.RsaMd5CksumType;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -153,7 +154,7 @@ public class UserDaoImple implements UserDao {
         }
         return  usersList;
     }
-
+    //根据用户UID查看用户信息
     public User getUserById(Connection connection, String uid) {
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -174,7 +175,7 @@ public class UserDaoImple implements UserDao {
                 user.setPhone(rs.getString("phone"));
                 user.setAddress(rs.getString("address"));
                 user.setUserRole(rs.getInt("userRole"));
-                //user.setUserRoleName(rs.getString("userRoleName"));
+                user.setUserRoleName(rs.getInt("userRole"));
                 user.setCreatedBy(rs.getInt("createdBy"));
                 //user.setCreationDate(rs.getTimestamp("creationDate"));
                 user.setModifyBy(rs.getInt("modifyBy"));
@@ -186,5 +187,35 @@ public class UserDaoImple implements UserDao {
             BaseDao.closeResources(null,pstm,rs);
             return user;
         }
+    }
+    //根据用户UID修改用户信息
+    public int modifyUserById(Connection connection, String uid,User user) {
+        PreparedStatement pstm = null;
+        String sql = "update smbms_user set userName=?,gender = ?,birthday = ?,phone = ?,address = ?,userRole = ? where id = ?";
+        Object [] params = {user.getUserName(),user.getGender(),user.getBirthday(),user.getPhone(),user.getAddress(),user.getUserRole(),uid};
+        int delUserRow = 0;
+        try {
+            delUserRow = BaseDao.execute(connection, pstm, sql, params);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        }
+        BaseDao.closeResources(null,pstm,null);
+        return delUserRow;
+    }
+    //根据用户UID删除用户信息
+    public int delUserById(Connection connection, String uid) {
+        PreparedStatement pstm = null;
+        String sql = "delete from smbms_user where id = ?";
+        Object [] params = {uid};
+        int delUserRow = 0;
+        try {
+            delUserRow = BaseDao.execute(connection, pstm, sql, params);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        }
+        BaseDao.closeResources(null,pstm,null);
+        return delUserRow;
     }
 }
