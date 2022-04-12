@@ -218,4 +218,23 @@ public class UserDaoImple implements UserDao {
         BaseDao.closeResources(null,pstm,null);
         return delUserRow;
     }
+
+    public int addUser(Connection connection, User user) {
+        PreparedStatement pstm = null;
+        String sql = "insert into smbms_user(usercode, username, userpassword, gender, birthday, phone, address, userrole, createdby, creationdate, modifyby, modifydate)\n" +
+                "values (?,?,?,?,?,?,?,?,?,?,?,?)";
+        Object[] params = {user.getUserCode(),user.getUserName(),user.getUserPassword(),
+                           user.getGender(),user.getBirthday(),user.getPhone(),
+                           user.getAddress(),user.getUserRole(),user.getCreatedBy(),
+                           user.getCreateDate(),user.getModifyBy(),user.getModifyDate()};
+        int addUpdateRows = 0;
+        try {
+            addUpdateRows = BaseDao.execute(connection, pstm, sql, params);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResources(null,pstm,null);
+        }
+        return addUpdateRows;
+    }
 }

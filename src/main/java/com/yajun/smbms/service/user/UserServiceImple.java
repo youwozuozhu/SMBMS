@@ -132,6 +132,33 @@ public class UserServiceImple implements UserService {
         return false;
     }
 
+    public boolean addUser(User user) {
+        boolean flag = false;
+
+        Connection connection = null;
+        try {
+            connection = BaseDao.getConnection();
+            connection.setAutoCommit(false);
+            int updaterow = userdao.addUser(connection, user);
+            connection.commit();
+            if(updaterow>0)
+            {
+                flag = true;
+                System.out.println("添加成功！");
+            }
+        } catch (Exception e) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResources(connection,null,null);
+        }
+        return flag;
+    }
+
 
     @Test
     public void test1()

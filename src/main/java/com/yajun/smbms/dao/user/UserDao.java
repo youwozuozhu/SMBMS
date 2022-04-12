@@ -24,4 +24,6 @@ public interface UserDao {
     public int modifyUserById(Connection connection,String uid,User user);
     //用户管理-删除用户信息
     public int delUserById(Connection connection,String uid);
+    //用户管理-增加新用户
+    public int addUser(Connection connection,User user);
 }

@@ -19,6 +19,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.SimpleFormatter;
@@ -42,7 +43,17 @@ public class userServlet extends HttpServlet {
             this.viewUserList(req,resp,"/jsp/userview.jsp");
         }else if(method.equals("modify") && method != null)
         {
-            this.modifyUserById(req,resp,"/jsp/usermodify.jsp");
+            this.goModifyUser(req,resp);
+        }else if(method.equals("modifyexe")&& method !=null)
+        {
+            this.modifyUserById(req,resp);
+        }else if(method.equals("getrolelist")&& method !=null)
+        {
+            this.getRoleList(req,resp);
+        }
+        else if(method.equals("add")&& method !=null)
+        {
+            this.addUser(req,resp);
         }
     }
 
@@ -208,36 +219,68 @@ public class userServlet extends HttpServlet {
     }
 
     //用户管理-点击修改用户信息
-    public void modifyUserById(HttpServletRequest req,HttpServletResponse resp,String url)
+    public void goModifyUser(HttpServletRequest req,HttpServletResponse resp)
+    {
+        User user = (User) req.getSession().getAttribute(constants.USER_SESSION);
+        if(user==null)
+        {
+            try {
+                req.getRequestDispatcher("/login.jsp").forward(req,resp);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        String uid = req.getParameter("uid");
+        if(StringUtils.isNullOrEmpty(uid))
+        {
+            //uid 不合法 为空/null
+            return;
+        }else
+        {
+            User user2= new UserServiceImple().getUserById(uid);
+            System.out.println(user2.getId());
+            System.out.println("user2.userrole"+user2.getUserRoleName());
+            req.setAttribute("user",user2);
+            try {
+                req.getRequestDispatcher("/jsp/usermodify.jsp").forward(req,resp);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void modifyUserById(HttpServletRequest req,HttpServletResponse resp)
     {
         String uid = req.getParameter("uid");
-        //System.out.println("++++++++++"+uid);
+        System.out.println("++++++++++"+uid);
         UserServiceImple userServiceImple = new UserServiceImple();
         User user = new User();
         user.setUserName(req.getParameter("userName"));
         System.out.println(req.getParameter("gender"));
         user.setGender(Integer.valueOf(req.getParameter("gender")));
-//        try {
-//            user.setBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("birthday")));
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            user.setBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("birthday")));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         user.setPhone(req.getParameter("phone"));
         user.setAddress(req.getParameter("address"));
-        //user.setUserRoleName(Integer.parseInt(req.getParameter("userRole")));
+        System.out.println(req.getParameter("userRole"));
+        user.setUserRoleName(Integer.valueOf(req.getParameter("userRole")));
+       // user.setUserRole(Integer.valueOf(req.getParameter("userRole")));
         boolean b = userServiceImple.modifyUserById(uid, user);
+        System.out.println("_______"+b);
         if(b)
         {
             try {
-                //resp.sendRedirect(req.getContextPath()+"/jsp/user.do?method=query");
-                req.getRequestDispatcher(url).forward(req,resp);
+                resp.sendRedirect(req.getContextPath()+"/jsp/user.do?method=view&uid="+uid);
+                //req.getRequestDispatcher(url).forward(req,resp);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }else
         {
             try {
-                req.getRequestDispatcher(url).forward(req,resp);
+                req.getRequestDispatcher("/jsp/usermodify.jsp").forward(req,resp);
             } catch (ServletException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -251,4 +294,77 @@ public class userServlet extends HttpServlet {
     {
 
     }
+    //用户管理-新增用户
+    public void addUser(HttpServletRequest req,HttpServletResponse resp)
+    {
+        String userCode = req.getParameter("userCode");
+        String userName = req.getParameter("userName");
+        String userPassword = req.getParameter("userPassword");
+        String ruserPassword = req.getParameter("ruserPassword");
+        String gender = req.getParameter("gender");
+        String birthday = req.getParameter("birthday");
+        String phone = req.getParameter("phone");
+        String address = req.getParameter("address");
+        String userRole = req.getParameter("userRole");
+        User user = new User();
+        user.setUserCode(userCode);
+        user.setUserName(userName);
+        user.setUserPassword(userPassword);
+        user.setGender(Integer.parseInt(gender));
+        user.setPhone(phone);
+        user.setAddress(address);
+        user.setUserRole(Integer.parseInt(userRole));
+        //user.setUserRoleName(Integer.parseInt(userRole));
+        user.setCreatedBy(((User)req.getSession().getAttribute(constants.USER_SESSION)).getId());
+        user.setCreateDate(new Date());
+        user.setModifyDate(null);
+        user.setModifyBy(null);
+        try {
+            user.setBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(birthday));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        UserServiceImple userServiceImple = new UserServiceImple();
+        boolean flag = userServiceImple.addUser(user);
+        if(flag)
+        {
+            try {
+                resp.sendRedirect(req.getContextPath() + "/jsp/user.do?method=query");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else
+        {
+            try {
+                req.getRequestDispatcher("/jsp/useradd.jsp").forward(req,resp);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    //用户管理-新增用户 获取角色列表的请求
+    // 获取角色列表的请求
+    public void getRoleList(HttpServletRequest req,HttpServletResponse resp)
+    {
+        RoleServiceImple roleServiceImple = new RoleServiceImple();
+        List<Role> roleList = null;
+        try {
+            roleList = roleServiceImple.getRoleList();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //把roleList转换成json对象输出
+        resp.setContentType("application/json");
+        PrintWriter writer = null;
+        try {
+            writer = resp.getWriter();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        writer.write(JSONArray.toJSONString(roleList));
+        writer.flush();
+        writer.close();
+    }
+    //不要忘记在doGet中做好对应
 }

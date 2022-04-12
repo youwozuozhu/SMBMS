@@ -1,7 +1,7 @@
 var userName = null;
 var birthday = null;
 var phone = null;
-var userRole = null;
+//var userRole = null;
 var saveBtn = null;
 var backBtn = null;
 
@@ -9,14 +9,14 @@ $(function(){
 	userName = $("#userName");
 	birthday = $("#birthday");
 	phone = $("#phone");
-	userRole = $("#userRole");
+	//userRole = $("#userRole");
 	saveBtn = $("#save");
 	backBtn = $("#back");
 	
 	userName.next().html("*");
 	birthday.next().html("*");
 	phone.next().html("*");
-	userRole.next().html("*");
+	//userRole.next().html("*");
 	
 	
 	$.ajax({
@@ -81,26 +81,27 @@ $(function(){
 		}
 	});
 	
-	userRole.on("focus",function(){
-		validateTip(userRole.next(),{"color":"#666666"},"* 请选择用户角色",false);
-	}).on("blur",function(){
-		if(userRole.val() != null && userRole.val() > 0){
-			validateTip(userRole.next(),{"color":"green"},imgYes,true);
-		}else{
-			validateTip(userRole.next(),{"color":"red"},imgNo+" 请重新选择用户角色",false);
-		}
-		
-	});
+	// userRole.on("focus",function(){
+	// 	validateTip(userRole.next(),{"color":"#666666"},"* 请选择用户角色",false);
+	// }).on("blur",function(){
+	// 	if(userRole.val() != null && userRole.val() > 0){
+	// 		validateTip(userRole.next(),{"color":"green"},imgYes,true);
+	// 	}else{
+	// 		validateTip(userRole.next(),{"color":"red"},imgNo+" 请重新选择用户角色",false);
+	// 	}
+	//
+	// });
 	
 	saveBtn.on("click",function(){
 		userName.blur();
 		phone.blur();
 		birthday.blur();
-		userRole.blur();
+		//userRole.blur();
 		if(userName.attr("validateStatus") == "true" 
 			&& phone.attr("validateStatus") == "true"
 			&& birthday.attr("validateStatus") == "true"
-			&& userRole.attr("validateStatus") == "true"){
+			//&& userRole.attr("validateStatus") == "true"
+		){
 			if(confirm("是否确认要提交数据？")){
 				$("#userForm").submit();
 			}
