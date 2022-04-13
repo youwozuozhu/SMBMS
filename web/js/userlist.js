@@ -72,7 +72,7 @@ $(function(){
 		openYesOrNoDLG();
 	});
 	
-	/*$(".deleteUser").on("click",function(){
+	$(".deleteUser").on("click",function(){
 		var obj = $(this);
 		if(confirm("你确定要删除用户【"+obj.attr("username")+"】吗？")){
 			$.ajax({
@@ -95,5 +95,5 @@ $(function(){
 				}
 			});
 		}
-	});*/
+	});
 });

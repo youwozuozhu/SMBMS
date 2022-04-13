@@ -21,7 +21,7 @@ public interface UserService {
     public User getUserById(String uid);
     //根据UID修改用户信息
     public boolean modifyUserById(String uid,User user);
-    //根据UID修改用户信息
+    //根据UID删除用户信息
     public boolean delUserById(String uid);
     //用户管理-添加用户
     public boolean addUser(User user);

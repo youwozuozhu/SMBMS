@@ -129,7 +129,30 @@ public class UserServiceImple implements UserService {
     }
 
     public boolean delUserById(String uid) {
-        return false;
+        boolean flag = false;
+
+        Connection connection = null;
+        try {
+            connection = BaseDao.getConnection();
+            connection.setAutoCommit(false);
+            int i = userdao.delUserById(connection, uid);
+            System.out.println("****i*****"+i);
+            if(i>0)
+            {
+                flag = true;
+            }
+            connection.commit();
+        } catch (Exception e) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResources(connection,null,null);
+        }
+        return flag;
     }
 
     public boolean addUser(User user) {
@@ -225,5 +248,12 @@ public class UserServiceImple implements UserService {
         UserServiceImple userServiceImple = new UserServiceImple();
         User user = userServiceImple.getUserByUserCode("admin");
         System.out.println(user);
+    }
+    @Test
+    public void  test8()
+    {
+        UserServiceImple userServiceImple = new UserServiceImple();
+        boolean b = userServiceImple.delUserById("16");
+        System.out.println(b);
     }
 }

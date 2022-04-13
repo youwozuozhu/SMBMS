@@ -57,6 +57,9 @@ public class userServlet extends HttpServlet {
         else if(method.equals("add")&& method !=null)
         {
             this.addUser(req,resp);
+        }else if(method.equals("deluser")&& method!=null)
+        {
+            this.delUserById(req,resp);
         }
     }
 
@@ -295,7 +298,33 @@ public class userServlet extends HttpServlet {
     //用户管理-删除用户信息
     public void delUserById(HttpServletRequest req,HttpServletResponse resp)
     {
+        String userid = req.getParameter("uid");
+        UserServiceImple userServiceImple = new UserServiceImple();
+        boolean flag = userServiceImple.delUserById(userid);
+        System.out.println("flag****"+flag);
+        HashMap<String, String> resultMap = new HashMap<String, String>();
+        if(flag)
+        {
+            try {
+                resultMap.put("delResult","true");
+                System.out.println("resultMap"+resultMap);
+                resp.sendRedirect("/jsp/userlist.jsp");
 
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else
+        {
+            resultMap.put("delResult","false");
+        }
+        resp.setContentType("application/json");
+        try {
+            resp.getWriter().write(JSONArray.toJSONString(resultMap));
+            resp.getWriter().flush();
+            resp.getWriter().close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     //用户管理-新增用户
     public void addUser(HttpServletRequest req,HttpServletResponse resp)
@@ -353,16 +382,21 @@ public class userServlet extends HttpServlet {
         UserServiceImple userServiceImple = new UserServiceImple();
         User user = userServiceImple.getUserByUserCode(userCode);
        // System.out.println("flag==="+flag);
-        if(user!=null)
+        if(StringUtils.isNullOrEmpty(userCode))
         {
             resultMap.put("userCode","exist");
-            //System.out.println("账号已经存在,不能使用！");
         }else
         {
-            resultMap.put("userCode","notexist");
-           // System.out.println("账号不存在，可以使用！");
+            if(user!=null)
+            {
+                resultMap.put("userCode","exist");
+                //System.out.println("账号已经存在,不能使用！");
+            }else
+            {
+                resultMap.put("userCode","notexist");
+                // System.out.println("账号不存在，可以使用！");
+            }
         }
-
         resp.setContentType("application/json");
         try {
             resp.getWriter().write(JSONArray.toJSONString(resultMap));
