@@ -3,7 +3,6 @@ package com.yajun.smbms.dao.user;
 import com.mysql.jdbc.StringUtils;
 import com.yajun.smbms.utils.BaseDao;
 import com.yajun.smbms.pojo.User;
-import sun.security.krb5.internal.crypto.RsaMd5CksumType;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -68,7 +68,7 @@ $(function(){
 			success:function(data){//data：返回数据（json对象）
 				if(data.userCode == "exist"){//账号已存在，错误提示
 					validateTip(userCode.next(),{"color":"red"},imgNo+ " 该用户账号已存在",false);
-				}else{//账号可用，正确提示
+				}else if(data.userCode == "notexist"){//账号可用，正确提示
 					validateTip(userCode.next(),{"color":"green"},imgYes+" 该账号可以使用",true);
 				}
 			},

@@ -159,6 +159,19 @@ public class UserServiceImple implements UserService {
         return flag;
     }
 
+    public User getUserByUserCode(String userCode) {
+        Connection connection = null;
+        User user = null;
+        try {
+            connection = BaseDao.getConnection();
+            user = userdao.getLoginUser(connection, userCode);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            BaseDao.closeResources(connection,null,null);
+        }
+        return user;
+    }
 
     @Test
     public void test1()
@@ -206,4 +219,11 @@ public class UserServiceImple implements UserService {
         System.out.println(b);
     }
 
+    @Test
+    public void test7()
+    {
+        UserServiceImple userServiceImple = new UserServiceImple();
+        User user = userServiceImple.getUserByUserCode("admin");
+        System.out.println(user);
+    }
 }

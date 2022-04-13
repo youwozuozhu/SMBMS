@@ -25,4 +25,6 @@ public interface UserService {
     public boolean delUserById(String uid);
     //用户管理-添加用户
     public boolean addUser(User user);
+    //用户管理-添加用户-根据usercode查询是否存在
+    public User getUserByUserCode(String userCode);
 }

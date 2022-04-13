@@ -50,6 +50,9 @@ public class userServlet extends HttpServlet {
         }else if(method.equals("getrolelist")&& method !=null)
         {
             this.getRoleList(req,resp);
+        }else if(method.equals("ucexist")&& method !=null)
+        {
+            this.userCodeExist(req,resp);
         }
         else if(method.equals("add")&& method !=null)
         {
@@ -300,7 +303,6 @@ public class userServlet extends HttpServlet {
         String userCode = req.getParameter("userCode");
         String userName = req.getParameter("userName");
         String userPassword = req.getParameter("userPassword");
-        String ruserPassword = req.getParameter("ruserPassword");
         String gender = req.getParameter("gender");
         String birthday = req.getParameter("birthday");
         String phone = req.getParameter("phone");
@@ -343,6 +345,33 @@ public class userServlet extends HttpServlet {
             }
         }
     }
+    //用户管理-新增用户 判断新增用户与数据库的Usercode是否重复
+    public void userCodeExist(HttpServletRequest req,HttpServletResponse resp)
+    {
+        String userCode = req.getParameter("userCode");
+        HashMap<String, String> resultMap = new HashMap<String, String>();
+        UserServiceImple userServiceImple = new UserServiceImple();
+        User user = userServiceImple.getUserByUserCode(userCode);
+       // System.out.println("flag==="+flag);
+        if(user!=null)
+        {
+            resultMap.put("userCode","exist");
+            //System.out.println("账号已经存在,不能使用！");
+        }else
+        {
+            resultMap.put("userCode","notexist");
+           // System.out.println("账号不存在，可以使用！");
+        }
+
+        resp.setContentType("application/json");
+        try {
+            resp.getWriter().write(JSONArray.toJSONString(resultMap));
+            resp.getWriter().flush();
+            resp.getWriter().close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     //用户管理-新增用户 获取角色列表的请求
     // 获取角色列表的请求
     public void getRoleList(HttpServletRequest req,HttpServletResponse resp)
@@ -366,5 +395,4 @@ public class userServlet extends HttpServlet {
         writer.flush();
         writer.close();
     }
-    //不要忘记在doGet中做好对应
 }
