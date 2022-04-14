@@ -136,7 +136,7 @@ public class UserServiceImple implements UserService {
             connection = BaseDao.getConnection();
             connection.setAutoCommit(false);
             int i = userdao.delUserById(connection, uid);
-            System.out.println("****i*****"+i);
+           // System.out.println("****i*****"+i);
             if(i>0)
             {
                 flag = true;

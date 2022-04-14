@@ -244,8 +244,8 @@ public class userServlet extends HttpServlet {
         }else
         {
             User user2= new UserServiceImple().getUserById(uid);
-            System.out.println(user2.getId());
-            System.out.println("user2.userrole"+user2.getUserRoleName());
+            //System.out.println(user2.getId());
+            //System.out.println("user2.userrole"+user2.getUserRoleName());
             req.setAttribute("user",user2);
             try {
                 req.getRequestDispatcher("/jsp/usermodify.jsp").forward(req,resp);
@@ -270,9 +270,9 @@ public class userServlet extends HttpServlet {
         }
         user.setPhone(req.getParameter("phone"));
         user.setAddress(req.getParameter("address"));
-        System.out.println(req.getParameter("userRole"));
-        user.setUserRoleName(Integer.valueOf(req.getParameter("userRole")));
-       // user.setUserRole(Integer.valueOf(req.getParameter("userRole")));
+        //System.out.println(req.getParameter("userRole"));
+        //user.setUserRoleName(req.getParameter(""));
+        user.setUserRole(Integer.parseInt(req.getParameter("userRole")));
         boolean b = userServiceImple.modifyUserById(uid, user);
         System.out.println("_______"+b);
         if(b)
@@ -294,28 +294,32 @@ public class userServlet extends HttpServlet {
             }
         }
     }
-
     //用户管理-删除用户信息
     public void delUserById(HttpServletRequest req,HttpServletResponse resp)
     {
         String userid = req.getParameter("uid");
         UserServiceImple userServiceImple = new UserServiceImple();
         boolean flag = userServiceImple.delUserById(userid);
-        System.out.println("flag****"+flag);
+        //System.out.println("flag****"+flag);
         HashMap<String, String> resultMap = new HashMap<String, String>();
-        if(flag)
+        if(StringUtils.isNullOrEmpty(userid))
         {
-            try {
-                resultMap.put("delResult","true");
-                System.out.println("resultMap"+resultMap);
-                resp.sendRedirect("/jsp/userlist.jsp");
-
-            }catch (IOException e) {
-                e.printStackTrace();
-            }
+            resultMap.put("delResult","notexist");
         }else
         {
-            resultMap.put("delResult","false");
+            if(flag)
+            {
+                try {
+                    resultMap.put("delResult","true");
+                    //System.out.println("resultMap"+resultMap);
+                    //resp.sendRedirect("/jsp/userlist.jsp");
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }else
+            {
+                resultMap.put("delResult","false");
+            }
         }
         resp.setContentType("application/json");
         try {

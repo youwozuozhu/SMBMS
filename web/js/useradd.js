@@ -98,7 +98,7 @@ $(function(){
 	userPassword.bind("focus",function(){
 		validateTip(userPassword.next(),{"color":"#666666"},"* 密码长度必须是大于6小于20",false);
 	}).bind("blur",function(){
-		if(userPassword.val() != null && userPassword.val().length > 6
+		if(userPassword.val() != null && userPassword.val().length >6
 				&& userPassword.val().length < 20 ){
 			validateTip(userPassword.next(),{"color":"green"},imgYes,true);
 		}else{

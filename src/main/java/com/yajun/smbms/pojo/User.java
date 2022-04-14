@@ -58,16 +58,17 @@ public class User {
         return userRoleName;
     }
 
-    public void setUserRoleName(int userRole ) {
-        if(userRole==1)
-        {
-            this.userRoleName = "系统管理员";
-        }else if(userRole==2)
-        {
-            this.userRoleName = "经理";
-        }else {
-            this.userRoleName = "普通员工";
-        }
+    public void setUserRoleName(String userRoleName ) {
+        this.userRoleName= userRoleName;
+//        if(userRole==1)
+//        {
+//            this.userRoleName = "系统管理员";
+//        }else if(userRole==2)
+//        {
+//            this.userRoleName = "经理";
+//        }else {
+//            this.userRoleName = "普通员工";
+//        }
 
     }
 

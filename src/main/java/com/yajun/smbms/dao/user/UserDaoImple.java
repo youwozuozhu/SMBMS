@@ -105,7 +105,7 @@ public class UserDaoImple implements UserDao {
         ArrayList<Object> listParams = new ArrayList<Object>();
         User user = null;
         try {
-            sqlBuffer.append("select * from smbms_user u,smbms_role r where u.userRole=r.id");
+            sqlBuffer.append("select u.*,r.roleName as userRoleName from smbms_user u,smbms_role r where r.id=u.userRole");
             if(connection != null)
             {
                 if(!StringUtils.isNullOrEmpty(userName))
@@ -142,7 +142,7 @@ public class UserDaoImple implements UserDao {
                 //根据用户生日计算年龄
                 user.setAge(rs.getDate("birthday"));
                 //数据库表格里面没有 后面添加的根据userRole确定用户角色名称
-                user.setUserRoleName(rs.getInt("userRole"));
+                user.setUserRoleName(rs.getString("userRoleName"));
                 user.setUserRole(rs.getInt("userRole"));
                 usersList.add(user);
             }
@@ -157,7 +157,7 @@ public class UserDaoImple implements UserDao {
     public User getUserById(Connection connection, String uid) {
         PreparedStatement pstm = null;
         ResultSet rs = null;
-        String sql = "select * from smbms_user where id = ?";
+        String sql = "select u.*,r.roleName as userRoleName from smbms_user u,smbms_role r where r.id=u.userRole and u.id = ?";
         Object [] params = {uid};
         User user=null;
         rs = BaseDao.execute(connection, pstm, rs, sql, params);
@@ -174,7 +174,7 @@ public class UserDaoImple implements UserDao {
                 user.setPhone(rs.getString("phone"));
                 user.setAddress(rs.getString("address"));
                 user.setUserRole(rs.getInt("userRole"));
-                user.setUserRoleName(rs.getInt("userRole"));
+                user.setUserRoleName(rs.getString("userRoleName"));
                 user.setCreatedBy(rs.getInt("createdBy"));
                 //user.setCreationDate(rs.getTimestamp("creationDate"));
                 user.setModifyBy(rs.getInt("modifyBy"));
