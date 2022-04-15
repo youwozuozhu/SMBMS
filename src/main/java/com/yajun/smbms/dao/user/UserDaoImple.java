@@ -140,7 +140,7 @@ public class UserDaoImple implements UserDao {
                 user.setBirthday(rs.getDate("birthday"));
                 user.setPhone(rs.getString("phone"));
                 //根据用户生日计算年龄
-                user.setAge(rs.getDate("birthday"));
+                //user.setAge(rs.getDate("birthday"));
                 //数据库表格里面没有 后面添加的根据userRole确定用户角色名称
                 user.setUserRoleName(rs.getString("userRoleName"));
                 user.setUserRole(rs.getInt("userRole"));

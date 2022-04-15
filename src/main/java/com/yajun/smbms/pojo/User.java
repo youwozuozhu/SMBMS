@@ -48,10 +48,11 @@ public class User {
         return age;
     }
 
-    public void setAge(Date birthday) {
-        int selectYear = 1900+birthday.getYear();
-        //System.out.println("********"+selectYear);
-        this.age = Calendar.getInstance().get(Calendar.YEAR)-selectYear;
+    public void setAge(Integer age) {
+        this.age = age;
+//        int selectYear = 1900+birthday.getYear();
+//        //System.out.println("********"+selectYear);
+//        this.age = Calendar.getInstance().get(Calendar.YEAR)-selectYear;
     }
 
     public String getUserRoleName() {
