@@ -52,7 +52,6 @@ public class User {
         int selectYear = 1900+birthday.getYear();
         //System.out.println("********"+selectYear);
         this.age = Calendar.getInstance().get(Calendar.YEAR)-selectYear;
-        System.out.println("**********age"+this.age);
     }
 
     public String getUserRoleName() {
