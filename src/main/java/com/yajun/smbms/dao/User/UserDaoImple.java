@@ -1,4 +1,4 @@
-package com.yajun.smbms.dao.user;
+package com.yajun.smbms.dao.User;
 
 import com.mysql.jdbc.StringUtils;
 import com.yajun.smbms.utils.BaseDao;
@@ -176,7 +176,7 @@ public class UserDaoImple implements UserDao {
                 user.setUserRole(rs.getInt("userRole"));
                 user.setUserRoleName(rs.getString("userRoleName"));
                 user.setCreatedBy(rs.getInt("createdBy"));
-                //user.setCreationDate(rs.getTimestamp("creationDate"));
+                //User.setCreationDate(rs.getTimestamp("creationDate"));
                 user.setModifyBy(rs.getInt("modifyBy"));
                 user.setModifyDate(rs.getTimestamp("modifyDate"));
             }

@@ -1,10 +1,8 @@
-package com.yajun.smbms.dao.user;
+package com.yajun.smbms.dao.User;
 
-import com.yajun.smbms.pojo.Role;
 import com.yajun.smbms.pojo.User;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 
 public interface UserDao {

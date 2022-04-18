@@ -1,9 +1,8 @@
-package com.yajun.smbms.service.role;
+package com.yajun.smbms.service.Role;
 
 import com.yajun.smbms.dao.Role.RoleDao;
 import com.yajun.smbms.dao.Role.RoleDaoImple;
 import com.yajun.smbms.pojo.Role;
-import com.yajun.smbms.service.user.UserServiceImple;
 import com.yajun.smbms.utils.BaseDao;
 import org.junit.Test;
 

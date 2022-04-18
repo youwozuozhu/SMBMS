@@ -1,4 +1,4 @@
-package com.yajun.smbms.servlet.user;
+package com.yajun.smbms.servlet.User;
 
 import com.yajun.smbms.utils.constants;
 

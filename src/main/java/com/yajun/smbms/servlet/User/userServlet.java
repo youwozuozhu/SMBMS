@@ -1,12 +1,12 @@
-package com.yajun.smbms.servlet.user;
+package com.yajun.smbms.servlet.User;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.mysql.jdbc.StringUtils;
 import com.yajun.smbms.pojo.Role;
 import com.yajun.smbms.pojo.User;
-import com.yajun.smbms.service.role.RoleServiceImple;
-import com.yajun.smbms.service.user.UserServiceImple;
+import com.yajun.smbms.service.Role.RoleServiceImple;
+import com.yajun.smbms.service.User.UserServiceImple;
 import com.yajun.smbms.utils.PageSupport;
 import com.yajun.smbms.utils.constants;
 
@@ -22,7 +22,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.logging.SimpleFormatter;
 
 //实现servlet复用
 public class userServlet extends HttpServlet {
@@ -212,11 +211,11 @@ public class userServlet extends HttpServlet {
         //System.out.println("--------"+uid);
         UserServiceImple userServiceImple = new UserServiceImple();
         User user = userServiceImple.getUserById(uid);
-        //System.out.println("====="+user.getUserCode());
-        req.setAttribute("user",user);
+        //System.out.println("====="+User.getUserCode());
+        req.setAttribute("User",user);
         //下面赋值属性不可行
-//        req.setAttribute("user.userCode",user.getUserCode());
-//        req.setAttribute("user.userName",user.getUserName());
+//        req.setAttribute("User.userCode",User.getUserCode());
+//        req.setAttribute("User.userName",User.getUserName());
         try {
             req.getRequestDispatcher(url).forward(req,resp);
         } catch (Exception e) {
@@ -246,7 +245,7 @@ public class userServlet extends HttpServlet {
             User user2= new UserServiceImple().getUserById(uid);
             //System.out.println(user2.getId());
             //System.out.println("user2.userrole"+user2.getUserRoleName());
-            req.setAttribute("user",user2);
+            req.setAttribute("User",user2);
             try {
                 req.getRequestDispatcher("/jsp/usermodify.jsp").forward(req,resp);
             } catch (Exception e) {
@@ -271,14 +270,16 @@ public class userServlet extends HttpServlet {
         user.setPhone(req.getParameter("phone"));
         user.setAddress(req.getParameter("address"));
         //System.out.println(req.getParameter("userRole"));
-        //user.setUserRoleName(req.getParameter(""));
+        //User.setUserRoleName(req.getParameter(""));
         user.setUserRole(Integer.parseInt(req.getParameter("userRole")));
         boolean b = userServiceImple.modifyUserById(uid, user);
-        System.out.println("_______"+b);
+        //System.out.println("_______"+b);
         if(b)
         {
             try {
-                resp.sendRedirect(req.getContextPath()+"/jsp/user.do?method=view&uid="+uid);
+                //resp.sendRedirect(req.getContextPath()+"/jsp/User.do?method=view&uid="+uid);
+                resp.sendRedirect(req.getContextPath()+"/jsp/User.do?method=query");
+                //req.getRequestDispatcher("/jsp/userlist.jsp").forward(req,resp);
                 //req.getRequestDispatcher(url).forward(req,resp);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -286,6 +287,7 @@ public class userServlet extends HttpServlet {
         }else
         {
             try {
+                System.out.println("------+++++");
                 req.getRequestDispatcher("/jsp/usermodify.jsp").forward(req,resp);
             } catch (ServletException e) {
                 e.printStackTrace();
@@ -341,6 +343,13 @@ public class userServlet extends HttpServlet {
         String phone = req.getParameter("phone");
         String address = req.getParameter("address");
         String userRole = req.getParameter("userRole");
+        //将string birthday转换为data对象
+        Date birthday1 = null;
+        try {
+            birthday1 = new SimpleDateFormat("yyyy-MM-dd").parse(birthday);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         User user = new User();
         user.setUserCode(userCode);
         user.setUserName(userName);
@@ -348,8 +357,9 @@ public class userServlet extends HttpServlet {
         user.setGender(Integer.parseInt(gender));
         user.setPhone(phone);
         user.setAddress(address);
+        user.setAge(birthday1);
         user.setUserRole(Integer.parseInt(userRole));
-        //user.setUserRoleName(Integer.parseInt(userRole));
+        //User.setUserRoleName(Integer.parseInt(userRole));
         user.setCreatedBy(((User)req.getSession().getAttribute(constants.USER_SESSION)).getId());
         user.setCreateDate(new Date());
         user.setModifyDate(null);
@@ -365,7 +375,7 @@ public class userServlet extends HttpServlet {
         if(flag)
         {
             try {
-                resp.sendRedirect(req.getContextPath() + "/jsp/user.do?method=query");
+                resp.sendRedirect(req.getContextPath() + "/jsp/User.do?method=query");
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -1,8 +1,8 @@
-package com.yajun.smbms.servlet.user;
+package com.yajun.smbms.servlet.User;
 
 import com.yajun.smbms.pojo.User;
-import com.yajun.smbms.service.user.UserService;
-import com.yajun.smbms.service.user.UserServiceImple;
+import com.yajun.smbms.service.User.UserService;
+import com.yajun.smbms.service.User.UserServiceImple;
 import com.yajun.smbms.utils.constants;
 
 import javax.servlet.ServletException;

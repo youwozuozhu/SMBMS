@@ -1,13 +1,9 @@
-package com.yajun.smbms.service.user;
+package com.yajun.smbms.service.User;
 
-import com.yajun.smbms.pojo.Role;
 import com.yajun.smbms.pojo.User;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import com.yajun.smbms.pojo.User;
+
 public interface UserService {
     //用户登录
     public User login(String userCode,String password);

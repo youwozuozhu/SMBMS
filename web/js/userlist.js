@@ -4,7 +4,7 @@ var userObj;
 function deleteUser(obj){
 	$.ajax({
 		type:"GET",
-		url:path+"/jsp/user.do",
+		url:path+"/jsp/User.do",
 		data:{method:"deluser",uid:obj.attr("userid")},
 		dataType:"json",
 		success:function(data){
@@ -50,12 +50,12 @@ $(function(){
 	$(".viewUser").on("click",function(){
 		//将被绑定的元素（a）转换成jquery对象，可以使用jquery方法
 		var obj = $(this);
-		window.location.href=path+"/jsp/user.do?method=view&uid="+ obj.attr("userid");
+		window.location.href=path+"/jsp/User.do?method=view&uid="+ obj.attr("userid");
 	});
 	
 	$(".modifyUser").on("click",function(){
 		var obj = $(this);
-		window.location.href=path+"/jsp/user.do?method=modify&uid="+ obj.attr("userid");
+		window.location.href=path+"/jsp/User.do?method=modify&uid="+ obj.attr("userid");
 	});
 
 	$('#no').click(function () {
@@ -77,7 +77,7 @@ $(function(){
 	// 	if(confirm("你确定要删除用户【"+obj.attr("username")+"】吗？")){
 	// 		$.ajax({
 	// 			type:"GET",
-	// 			url:path+"/jsp/user.do",
+	// 			url:path+"/jsp/User.do",
 	// 			data:{method:"deluser",uid:obj.attr("userid")},
 	// 			dataType:"json",
 	// 			success:function(data){

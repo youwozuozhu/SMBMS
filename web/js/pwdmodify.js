@@ -16,9 +16,9 @@ $(function(){
 	oldpassword.on("blur",function(){
 		$.ajax({
 			type:"GET",
-			url:path+"/jsp/user.do",
+			url:path+"/jsp/User.do",
 			data:{method:"pwdmodify",oldpassword:oldpassword.val()},//ajax传递的参数
-			//path+"/jsp/user.do?method=pwdmodify&oldpassword=oldpassword.val()
+			//path+"/jsp/User.do?method=pwdmodify&oldpassword=oldpassword.val()
 			dataType:"json",
 			success:function(data){
 				if(data.result == "true"){//旧密码正确

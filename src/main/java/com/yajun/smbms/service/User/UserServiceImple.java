@@ -1,7 +1,7 @@
-package com.yajun.smbms.service.user;
+package com.yajun.smbms.service.User;
 
-import com.yajun.smbms.dao.user.UserDao;
-import com.yajun.smbms.dao.user.UserDaoImple;
+import com.yajun.smbms.dao.User.UserDao;
+import com.yajun.smbms.dao.User.UserDaoImple;
 import com.yajun.smbms.pojo.User;
 import com.yajun.smbms.utils.BaseDao;
 import org.junit.Test;

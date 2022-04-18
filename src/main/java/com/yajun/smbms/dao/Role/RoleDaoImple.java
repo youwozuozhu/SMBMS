@@ -28,10 +28,10 @@ public class RoleDaoImple implements RoleDao{
                 role.setId(rs.getInt("id"));
                 role.setRoleCode(rs.getString("roleCode"));
                 role.setRoleName(rs.getString("roleName"));
-//                role.setCreateBy(rs.getInt("createBy"));
-//                role.setCreationDate(rs.getDate("creationDate"));
-//                role.setModifyBy(rs.getInt("modifyBy"));
-//                role.setModifyDate(rs.getDate("modifyDate"));
+//                Role.setCreateBy(rs.getInt("createBy"));
+//                Role.setCreationDate(rs.getDate("creationDate"));
+//                Role.setModifyBy(rs.getInt("modifyBy"));
+//                Role.setModifyDate(rs.getDate("modifyDate"));
                 RoleList.add(role);
             }
             BaseDao.closeResources(null,pstm,rs);

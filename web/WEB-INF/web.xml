@@ -33,7 +33,7 @@
 <!--    注册登录页面的servlet-->
     <servlet>
         <servlet-name>loginServlet</servlet-name>
-        <servlet-class>com.yajun.smbms.servlet.user.loginServlet</servlet-class>
+        <servlet-class>com.yajun.smbms.servlet.User.loginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
@@ -42,7 +42,7 @@
     <!--    注销退出的servlet-->
     <servlet>
         <servlet-name>loginOutServlet</servlet-name>
-        <servlet-class>com.yajun.smbms.servlet.user.loginOutServlet</servlet-class>
+        <servlet-class>com.yajun.smbms.servlet.User.loginOutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginOutServlet</servlet-name>
@@ -51,10 +51,19 @@
 <!--    注册userservlet -->
     <servlet>
         <servlet-name>userServlet</servlet-name>
-        <servlet-class>com.yajun.smbms.servlet.user.userServlet</servlet-class>
+        <servlet-class>com.yajun.smbms.servlet.User.userServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>userServlet</servlet-name>
         <url-pattern>/jsp/user.do</url-pattern>
+    </servlet-mapping>
+<!--    注册provider servlet-->
+    <servlet>
+        <servlet-name>providerServlet</servlet-name>
+        <servlet-class>com.yajun.smbms.servlet.Provider.providerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>providerServlet</servlet-name>
+        <url-pattern>/jsp/provider.do</url-pattern>
     </servlet-mapping>
 </web-app>

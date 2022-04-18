@@ -1,4 +1,4 @@
-package com.yajun.smbms.service.role;
+package com.yajun.smbms.service.Role;
 
 import com.yajun.smbms.pojo.Role;
 
